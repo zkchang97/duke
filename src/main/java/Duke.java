@@ -12,13 +12,16 @@ public class Duke {
 
         Scanner input = new Scanner(System.in);
         boolean isListening = true;
+        ToDoList toDoList = new ToDoList(); // create instance of TDL
         while (isListening) {
             String command = input.nextLine(); // take input within the loop to avoid infinite loop
-            if (command.equalsIgnoreCase("bye")) {
+            if (command.equalsIgnoreCase("bye")) { // send good bye message when command == "bye"
                 System.out.println("Bye. Hope to see you again soon!");
                 isListening = false; // change flag to exit loop
+            } else if (command.equalsIgnoreCase("list")) { // list tasks if command == "list"
+                toDoList.listTasks();
             } else {
-                System.out.println(command);
+                toDoList.addTask(command);
             }
         }
     }
