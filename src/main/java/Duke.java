@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.lang.Integer;
 
 public class Duke {
     public static void main(String[] args) {
@@ -20,6 +21,10 @@ public class Duke {
                 isListening = false; // change flag to exit loop
             } else if (command.equalsIgnoreCase("list")) { // list tasks if command == "list"
                 toDoList.listTasks();
+            } else if (command.substring(0, 4).equalsIgnoreCase("done")) {
+                String s[] = command.split(" ");
+                int taskno = Integer.parseInt(s[1]);    // parseInt converts string to Int
+                toDoList.markasDone(taskno);
             } else {
                 toDoList.addTask(command);
             }
