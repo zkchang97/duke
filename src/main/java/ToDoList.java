@@ -26,6 +26,13 @@ public class ToDoList {
         System.out.println(" " + task.toString());
     }
 
+    public void removeTask(int n) {
+        MarkDone task = toDoList.remove(n - 1);
+        System.out.println("Noted. I've removed this task: ");
+        System.out.println(" " + task.toString());
+        System.out.println("Now you have " + toDoList.size() + " tasks in the list");
+    }
+
     public void listTasks() { // display back when requested
         int count = 1;
         System.out.println("Here are the tasks in your list:");
