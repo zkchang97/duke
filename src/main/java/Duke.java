@@ -13,8 +13,8 @@ public class Duke {
 
         Scanner input = new Scanner(System.in);
         boolean isListening = true;
-        ToDoList toDoList = new ToDoList(); // create instance of TDL
-
+        String filePath = "C:\\Users\\chang\\Desktop\\cs2113\\duke\\data\\duke.txt";
+        ToDoList toDoList = new ToDoList(filePath);
         while (isListening) {
             String command = input.nextLine(); // take input within the loop to avoid infinite loop
             String[] s = command.split(" ", 2); // split command into action and description
@@ -22,6 +22,7 @@ public class Duke {
             try {
                 if (action.equals("bye")) { // send good bye message when command == "bye"
                     System.out.println("Bye. Hope to see you again soon!");
+                    toDoList.saveTasks();
                     isListening = false; // change flag to exit loop
                 } else if (action.equals("list")) { // list tasks if command == "list"
                     toDoList.listTasks();

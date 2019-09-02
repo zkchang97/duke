@@ -1,6 +1,6 @@
 public class MarkDone {
     protected boolean isDone;
-    protected String statement; // protected: only class and subclass can access
+    protected String description; // protected: only class and subclass can access
 
     public static MarkDone taskList(String task, String type) {
         if (type.equals("todo")) {
@@ -20,9 +20,39 @@ public class MarkDone {
         }
     }
 
-    public MarkDone(String task) {
-        this.statement = task;
+    public static MarkDone taskList(String[] taskParams) {
+        String type = taskParams[0];
+        boolean isDone = taskParams[1].equals("true");
+        String description = taskParams[2];
+        if (type.equals("T")) {
+            return new ToDos(description, isDone);
+        } else if (type.equals("D")) {
+            String by = taskParams[3];
+            return new Deadlines(description, isDone, by);
+        } else if (type.equals("E")) {
+            String at = taskParams[3];
+            return new Events(description, isDone, at);
+        } else {
+            return null;
+        }
+    }
+
+    public MarkDone(String description) {
+        this.description = description;
         this.isDone = false;
+    }
+
+    public MarkDone(String description, boolean isDone) {
+        this.description = description;
+        this.isDone = isDone;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Boolean isitDone() {
+        return isDone;
     }
 
     public String markTask() {
@@ -38,6 +68,6 @@ public class MarkDone {
     }
 
     public String toString() {
-        return "[" + markTask() + "] " + statement;
+        return "[" + markTask() + "] " + description;
     }
 }
