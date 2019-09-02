@@ -19,22 +19,33 @@ public class Duke {
             String command = input.nextLine(); // take input within the loop to avoid infinite loop
             String[] s = command.split(" ", 2); // split command into action and description
             String action = s[0];   // captures the action word
-            if (action.equals("bye")) { // send good bye message when command == "bye"
-                System.out.println("Bye. Hope to see you again soon!");
-                isListening = false; // change flag to exit loop
-            } else if (action.equals("list")) { // list tasks if command == "list"
-                toDoList.listTasks();
-            } else if (action.equals("done")) {
-                int taskno = Integer.parseInt(s[1]);    // parseInt converts string to Int
-                toDoList.markasDone(taskno);
-            } else if (action.equals("todo") || action.equals("deadline") || action.equals("event")) {
-                String type = s[0];
-                String description = s[1];
-                toDoList.addTask(description, type);
-            } else {
-                toDoList.addTask(command);
+            try {
+                if (action.equals("bye")) { // send good bye message when command == "bye"
+                    System.out.println("Bye. Hope to see you again soon!");
+                    isListening = false; // change flag to exit loop
+                } else if (action.equals("list")) { // list tasks if command == "list"
+                    toDoList.listTasks();
+                } else if (action.equals("blah")) {
+                    throw new DukeException("☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
+                } else if (action.equals("delete")) {
+                    int taskno = Integer.parseInt(s[1]);
+                    toDoList.removeTask(taskno);
+                } else if (action.equals("done")) {
+                    int taskno = Integer.parseInt(s[1]);    // parseInt converts string to Int
+                    toDoList.markasDone(taskno);
+                } else if (action.equals("todo") || action.equals("deadline") || action.equals("event")) {
+                    String type = s[0];
+                    if (s.length <= 1) {
+                        throw new DukeException("☹ OOPS!!! The description of a " + type + " cannot be empty");
+                    }
+                    String description = s[1];
+                    toDoList.addTask(description, type);
+                } else {
+                    toDoList.addTask(command);
+                }
+            } catch (DukeException dukeException) {
+                System.out.println(dukeException.getMessage());
             }
         }
     }
-
 }
