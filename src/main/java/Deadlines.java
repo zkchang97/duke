@@ -1,9 +1,9 @@
 public class Deadlines extends MarkDone {
 
-    String deadline;
+    protected String deadline;
     public Deadlines(String task, String deadline) {
         super(task);
-        this.deadline = deadline;   // by
+        this.deadline = DukeDateFormat.convertStringToDate(deadline);   // by
     }
 
     public String toString() {
