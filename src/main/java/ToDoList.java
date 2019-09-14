@@ -5,7 +5,7 @@ import java.io.*;
 public class ToDoList {
     private String filePath;
     private List<MarkDone> toDoList;
-    private static String divider = " DIVIDER ";
+    private static String divider = " | ";
     public ToDoList(String filePath) {
         this.filePath = filePath;
         toDoList = new ArrayList<>();

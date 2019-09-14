@@ -2,6 +2,46 @@ import java.util.Scanner;
 import java.lang.Integer;
 
 public class Duke {
+
+    private Storage storage;
+    private TaskList tasks;
+    private Ui ui;
+
+    public Duke(String filePath) {
+        ui = new Ui();
+        storage = new Storage(filePath);
+        try {
+            tasks = new TaskList(storage.load());
+        } catch (DukeException e) {
+            ui.showLoadError();
+            tasks = new TaskList();
+        }
+    }
+
+    public void run() {
+        ui.showWelcomeMessage();
+        boolean isExit = false;
+        while (!isExit) {
+            try {
+                String fullCommand = ui.readCommand();
+                ui.showLine();
+                Command c = Parser.parse(fullCommand);
+                c.execute(tasks, ui, storage);
+                isExit = c.isExit();
+            } catch (DukeException e) {
+                ui.showError(e.getMessage());
+            } finally {
+                ui.showLine();
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        String filePath = "C:\\Users\\chang\\Desktop\\cs2113\\duke\\src\\main\\java\\duke.txt";
+        new Duke(filePath).run();
+    }
+}
+/*
     public static void main(String[] args) {
         String logo = " ____        _        \n"
                 + "|  _ \\ _   _| | _____ \n"
@@ -13,7 +53,7 @@ public class Duke {
 
         Scanner input = new Scanner(System.in);
         boolean isListening = true;
-        String filePath = "C:\\Users\\chang\\Desktop\\cs2113\\duke\\data\\duke.txt";
+        String filePath = "C:\\Users\\chang\\Desktop\\cs2113\\duke\\src\\main\\java\\duke.txt";
         ToDoList toDoList = new ToDoList(filePath);
         while (isListening) {
             String command = input.nextLine(); // take input within the loop to avoid infinite loop
@@ -50,3 +90,5 @@ public class Duke {
         }
     }
 }
+
+ */
