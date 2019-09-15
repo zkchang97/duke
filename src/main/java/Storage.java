@@ -9,29 +9,41 @@ public class Storage {
     private String filePath;
     public static String DIVIDER = " | ";
 
+    /**
+     * Public constructor, returns Save system
+     * @param filePath file path to save tasks to
+     */
     public Storage(String filePath) {
         this.filePath = filePath;
     }
 
-    public List<MarkDone> load() throws DukeException {
-        List<MarkDone> taskList = new ArrayList<>();
+    /**
+     * Loads task data from file at file path
+     * @return list of tasks loaded from duke.txt at filepath
+     */
+    public List<Tasks> load() throws DukeException {
+        List<Tasks> taskList = new ArrayList<>();
         try {
             BufferedReader br = new BufferedReader(new FileReader(filePath));
             String line;
             while ((line = br.readLine()) != null) {
                 String[] taskParams = line.split(Storage.DIVIDER);
-                MarkDone task = MarkDone.taskList(taskParams);
+                Tasks task = Tasks.taskList(taskParams);
                 taskList.add(task);
             }
         } catch (IOException ioException) {
-            throw new DukeException();
+            throw new DukeException("File could not be found");
         }
         return taskList;
     }
 
-    public void saveTasks(List<MarkDone> taskList) {
+    /**
+     * Saves tasks list to file path
+     * @param taskList list of tasks to be saved to duke.txt
+     */
+    public void saveTasks(List<Tasks> taskList) {
         try (FileWriter writer = new FileWriter(filePath)) {
-            for (MarkDone task : taskList) {
+            for (Tasks task : taskList) {
                 if (task instanceof ToDos) {
                     writer.write("T");
                 } else if(task instanceof  Deadlines){

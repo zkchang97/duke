@@ -5,6 +5,12 @@ import java.time.ZoneId;    // time zone id
 import java.text.ParseException;
 
 public class DukeDateFormat {
+
+    /**
+     * Converts String s into date
+     * @param s String to convert into date
+     * @return returns date format of given String s
+     */
     public static String convertStringToDate(String s) {
         try {
             SimpleDateFormat format = new SimpleDateFormat("d/M/yyyy HHmm");
@@ -19,6 +25,12 @@ public class DukeDateFormat {
             return s;
         }
     }
+
+    /**
+     * Returns suffix of int n eg. st, nd, rd, th
+     * @param n Value of the month
+     * @return returns suffix of n
+     */
     private static String getDaySuffix(int n) {   // to return suffix
         if (!(n >= 1 && n <= 31)) {
             return "";

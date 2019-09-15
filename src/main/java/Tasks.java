@@ -1,8 +1,14 @@
-public class MarkDone {
+public class Tasks {
     protected boolean isDone;
     protected String description; // protected: only class and subclass can access
 
-    public static MarkDone taskList(String task, String type) {
+    /**
+     * Creates the appropriate task according to parameters
+     * @param task description of task
+     * @param type type of task
+     * @return returns an uncompleted task according to task and type
+     */
+    public static Tasks taskList(String task, String type) {
         if (type.equals("todo")) {
             return new ToDos(task);     // pass into ToDos
         } else if (type.equals("deadline")) {
@@ -20,7 +26,12 @@ public class MarkDone {
         }
     }
 
-    public static MarkDone taskList(String[] taskParams) {
+    /**
+     * Creates a task according to taskParams
+     * @param taskParams array of parameters of the task to be created
+     * @return returns uncompleted task according to taskParams
+     */
+    public static Tasks taskList(String[] taskParams) {
         String type = taskParams[0];
         boolean isDone = taskParams[1].equals("true");
         String description = taskParams[2];
@@ -37,12 +48,16 @@ public class MarkDone {
         }
     }
 
-    public MarkDone(String description) {
+    /**
+     * Public constructor of a task
+     * @param description
+     */
+    public Tasks(String description) {
         this.description = description;
         this.isDone = false;
     }
 
-    public MarkDone(String description, boolean isDone) {
+    public Tasks(String description, boolean isDone) {
         this.description = description;
         this.isDone = isDone;
     }
@@ -71,3 +86,4 @@ public class MarkDone {
         return "[" + markTask() + "] " + description;
     }
 }
+

@@ -2,6 +2,11 @@ public class Parser {
 
     private Parser() {}
 
+    /**
+     * Returns appropriate statements depending on command input by user
+     * @param input, input string by the user
+     * @return, returns the subsequent action executed by Duke according to the input string by user
+     */
     public static Command parse(String input) throws DukeException {
         int taskNo;
         String type;
