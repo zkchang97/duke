@@ -27,6 +27,9 @@ public class Parser {
             case "done":
                 taskNo = Integer.parseInt(params[1]);
                 return new DoneCommand(taskNo);
+            case "find":
+                String substring = params[1];
+                return new FindCommand(substring);
             case "todo":
             case "deadline":
             case "event":

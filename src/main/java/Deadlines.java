@@ -31,6 +31,7 @@ public class Deadlines extends Tasks {
         return deadline;
     }
 
+    @Override
     /**
      * @return returns the statement and symbols as shown in Duke's List
      */

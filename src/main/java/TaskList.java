@@ -77,4 +77,14 @@ public class TaskList {
         task.markedasDone();
         return task;
     }
+
+    public List<Tasks> findTask(String substring) {
+        List<Tasks> taskWithSubstring = new ArrayList<>();
+        for (Tasks task: taskList) {
+            if (task.isContainingSubstring(substring)) {
+                taskWithSubstring.add(task);
+            }
+        }
+        return taskWithSubstring;
+    }
 }

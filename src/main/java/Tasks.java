@@ -82,6 +82,11 @@ public class Tasks {
         this.isDone = true;
     }
 
+    public boolean isContainingSubstring(String substring) {
+        return description.contains((substring));
+    }
+
+    @Override
     public String toString() {
         return "[" + markTask() + "] " + description;
     }

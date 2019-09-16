@@ -31,6 +31,7 @@ public class Events extends Tasks {
         return at;
     }
 
+    @Override
     /**
      * @return returns the statement and symbols as shown in Duke's List
      */

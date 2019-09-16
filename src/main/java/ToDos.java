@@ -17,6 +17,7 @@ public class ToDos extends Tasks {
         super(description, isDone);
     }
 
+    @Override
     /**
      * Returns statement shown in the list as a To Do task
      * @return
