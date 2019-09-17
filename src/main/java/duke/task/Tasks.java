@@ -1,3 +1,5 @@
+package duke.task;
+
 public class Tasks {
     protected boolean isDone;
     protected String description; // protected: only class and subclass can access
@@ -10,17 +12,17 @@ public class Tasks {
      */
     public static Tasks taskList(String task, String type) {
         if (type.equals("todo")) {
-            return new ToDos(task);     // pass into ToDos
+            return new ToDos(task);     // pass into duke.task.ToDos
         } else if (type.equals("deadline")) {
             String[] s = task.split(" /by ", 2);
             String taskDescription = s[0];    // task description always the first element in the String[]
             String by = s[1];
-            return new Deadlines(taskDescription, by);      // pass into Deadlines
+            return new Deadlines(taskDescription, by);      // pass into task.Deadlines
         } else if (type.equals("event")) {
             String[] s = task.split(" /at", 2);
             String taskDescription = s[0];
             String at = s[1];
-            return new Events(taskDescription, at);     // pass into Events
+            return new Events(taskDescription, at);     // pass into duke.task.Events
         } else {
             return null;
         }
@@ -66,7 +68,7 @@ public class Tasks {
         return description;
     }
 
-    public Boolean isitDone() {
+    public boolean isitDone() {
         return isDone;
     }
 

@@ -1,3 +1,10 @@
+package duke.command;
+
+import duke.task.Storage;
+import duke.task.TaskList;
+import duke.task.Tasks;
+import duke.task.Ui;
+
 public class AddCommand extends Command {
     String description;
     String type;
@@ -14,7 +21,7 @@ public class AddCommand extends Command {
     }
 
     /**
-     * Public constructor, adds a To Do reminder when executed
+     * Public constructor, adds a To Dgo reminder when executed
      * @param description description of the task
      */
     public AddCommand(String description) {

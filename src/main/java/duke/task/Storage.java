@@ -1,3 +1,5 @@
+package duke.task;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -48,7 +50,7 @@ public class Storage {
                     writer.write("T");
                 } else if(task instanceof  Deadlines){
                     writer.write("D");
-                } else if(task instanceof  Events){
+                } else if(task instanceof Events){
                     writer.write("E");
                 }
                 writer.write(DIVIDER + task.isitDone() + DIVIDER + task.getDescription());

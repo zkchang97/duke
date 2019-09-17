@@ -1,3 +1,8 @@
+package duke.command;
+
+import duke.command.*;
+import duke.task.DukeException;
+
 public class Parser {
 
     private Parser() {}
@@ -15,8 +20,6 @@ public class Parser {
         String action = params[0];
 
         switch(action) {
-            case "blah":
-                throw new DukeException("☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
             case "bye":
                 return new ByeCommand();
             case "list":
@@ -40,7 +43,7 @@ public class Parser {
                 description = params[1];
                 return new AddCommand(description, type);
             default:
-                return new AddCommand(input);
+                throw new DukeException("☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
         }
     }
 }

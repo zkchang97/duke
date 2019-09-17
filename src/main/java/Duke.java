@@ -1,3 +1,9 @@
+import duke.command.Command;
+import duke.command.Parser;
+import duke.task.DukeException;
+import duke.task.Storage;
+import duke.task.TaskList;
+import duke.task.Ui;
 
 public class Duke {
 
@@ -76,7 +82,7 @@ public class Duke {
                 } else if (action.equals("list")) { // list tasks if command == "list"
                     toDoList.listTasks();
                 } else if (action.equals("blah")) {
-                    throw new DukeException("☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
+                    throw new duke.task.DukeException("☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
                 } else if (action.equals("delete")) {
                     int taskno = Integer.parseInt(s[1]);
                     toDoList.removeTask(taskno);
@@ -93,7 +99,7 @@ public class Duke {
                 } else {
                     toDoList.addTask(command);
                 }
-            } catch (DukeException dukeException) {
+            } catch (duke.task.DukeException dukeException) {
                 System.out.println(dukeException.getMessage());
             }
         }

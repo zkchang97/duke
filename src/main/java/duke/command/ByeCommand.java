@@ -1,3 +1,9 @@
+package duke.command;
+
+import duke.task.Storage;
+import duke.task.TaskList;
+import duke.task.Ui;
+
 public class ByeCommand extends Command {
 
     /**

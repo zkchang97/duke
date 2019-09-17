@@ -1,3 +1,5 @@
+package duke.task;
+
 public class Events extends Tasks {
 
     String at;
@@ -36,6 +38,6 @@ public class Events extends Tasks {
      * @return returns the statement and symbols as shown in Duke's List
      */
     public String toString() {
-        return ("[E]" + super.toString() + " (at: " + at + ") ");
+        return ("[E]" + super.toString() + " (at: " + at + ")");
     }
 }
