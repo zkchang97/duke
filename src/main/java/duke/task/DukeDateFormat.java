@@ -9,9 +9,9 @@ import java.text.ParseException;
 public class DukeDateFormat {
 
     /**
-     * Converts String s into date
-     * @param s String to convert into date
-     * @return returns date format of given String s
+     * Converts String s into date.
+     * @param s String to convert into date.
+     * @return returns date format of given String s.
      */
     public static String convertStringToDate(String s) {
         try {
@@ -29,9 +29,9 @@ public class DukeDateFormat {
     }
 
     /**
-     * Returns suffix of int n eg. st, nd, rd, th
-     * @param n Value of the month
-     * @return returns suffix of n
+     * Returns suffix of int n eg. st, nd, rd, th.
+     * @param n Value of the month.
+     * @return returns suffix of n.
      */
     private static String getDaySuffix(int n) {   // to return suffix
         if (!(n >= 1 && n <= 31)) {
@@ -41,10 +41,10 @@ public class DukeDateFormat {
             return "th";
         }
         switch (n % 10) {
-            case 1: return "st";    // first
-            case 2: return "nd";    // second
-            case 3: return "rd";    // third
-            default: return "th";   // the rest
+        case 1: return "st";    // first
+        case 2: return "nd";    // second
+        case 3: return "rd";    // third
+        default: return "th";   // the rest
         }
     }
 }

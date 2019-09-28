@@ -1,7 +1,5 @@
 package duke.task;
 
-import duke.task.TaskList;
-
 import java.util.List;
 import java.util.Scanner;
 
@@ -9,29 +7,36 @@ public class Ui {
     Scanner input;
 
     /**
-     * Public constructor, returns UI to receive inputs
+     * Public constructor, returns UI to receive inputs.
      */
     public Ui() {
         input = new Scanner(System.in);
     }
 
     /**
-     * Prints loading error
+     * Prints loading error.
      */
     public void showLoadError() {
         System.out.println("No task data found.");
     }
 
     /**
-     * Prints error
-     * @param errorMessage error message to be printed
+     * Prints error.
+     * @param errorMessage error message to be printed.
      */
     public void showError(String errorMessage) {
         System.out.println(errorMessage);
     }
 
     /**
-     * Prints welcome message
+     * Prints save error.
+     */
+    public static void showSaveError() {
+        System.out.println("Task data could not be saved.");
+    }
+
+    /**
+     * Prints welcome message.
      */
     public void showWelcomeMessage() {
         String logo = " ____        _        \n"
@@ -44,15 +49,15 @@ public class Ui {
     }
 
     /**
-     * Prints goodbye message
+     * Prints goodbye message.
      */
     public void showGoodbye() {
         System.out.println("Bye. Hope to see you again soon!");
     }
 
     /**
-     * Prints all tasks in the list
-     * @param taskList list of tasks to be printed
+     * Prints all tasks in the list.
+     * @param taskList list of tasks to be printed.
      */
     public void showTaskList(List<Tasks> taskList) {
         System.out.println("Here are the tasks in your list:");
@@ -64,8 +69,8 @@ public class Ui {
     }
 
     /**
-     * Prints message stating the task is completed
-     * @param task completed task
+     * Prints message stating the task is completed.
+     * @param task completed task.
      */
     public void showDoneMessage(Tasks task) {
         System.out.println("Nice! I've marked this task as done.");
@@ -73,9 +78,9 @@ public class Ui {
     }
 
     /**
-     * Prints message stating a task is added
-     * @param task added task
-     * @param taskList list the task is added to
+     * Prints message stating a task is added.
+     * @param task added task.
+     * @param taskList list the task is added to.
      */
     public void showAddMessage(Tasks task, TaskList taskList) {
         System.out.println("Got it. I've added this task:");
@@ -84,9 +89,9 @@ public class Ui {
     }
 
     /**
-     * Prints message stating a task is deleted
-     * @param task deleted task
-     * @param taskList list the task is delted from
+     * Prints message stating a task is deleted.
+     * @param task deleted task.
+     * @param taskList list the task is delted from.
      */
     public void showDeleteMessage(Tasks task, TaskList taskList) {
         System.out.println("Noted. I've removed this task:");
@@ -95,15 +100,15 @@ public class Ui {
     }
 
     /**
-     * Read next line of input
-     * @return returns input as a string
+     * Read next line of input.
+     * @return returns input as a string.
      */
     public String readCommand() {
         return input.nextLine();
     }
 
     /**
-     * Prints line
+     * Prints line.
      */
     public void showLine() {
         System.out.println("__________________________");

@@ -5,9 +5,9 @@ public class Deadlines extends Tasks {
     private String deadline;
 
     /**
-     * Public constructor, returns uncompleted task with input deadline
-     * @param task description of the task
-     * @param deadline deadline of the task
+     * Public constructor, returns uncompleted task with input deadline.
+     * @param task description of the task.
+     * @param deadline deadline of the task.
      */
     public Deadlines(String task, String deadline) {
         super(task);
@@ -15,10 +15,10 @@ public class Deadlines extends Tasks {
     }
 
     /**
-     * Public constructor, returns a task with input deadline
-     * @param task description of the task
-     * @param isDone checks if task is completed
-     * @param deadline deadline of the task
+     * Public constructor, returns a task with input deadline.
+     * @param task description of the task.
+     * @param isDone checks if task is completed.
+     * @param deadline deadline of the task.
      */
     public Deadlines(String task, boolean isDone, String deadline) {
         super(task, isDone);
@@ -26,8 +26,8 @@ public class Deadlines extends Tasks {
     }
 
     /**
-     * Getter, gets the deadline of task
-     * @return returns deadline of task
+     * Getter, gets the deadline of task.
+     * @return returns deadline of task.
      */
     public String getDeadline() {
         return deadline;
@@ -35,7 +35,7 @@ public class Deadlines extends Tasks {
 
     @Override
     /**
-     * @return returns the statement and symbols as shown in Duke's List
+     * @return returns the statement and symbols as shown in Duke's List.
      */
     public String toString() {
         return ("[D]" + super.toString() + " (by: " + deadline + ")");

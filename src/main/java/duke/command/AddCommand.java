@@ -10,9 +10,9 @@ public class AddCommand extends Command {
     String type;
 
     /**
-     * Public constructor, adds a reminder when executed
-     * @param description description of the task
-     * @param type type of the task
+     * Public constructor, adds a reminder when executed.
+     * @param description description of the task.
+     * @param type type of the task.
      */
     public AddCommand(String description, String type) {
         super(false);
@@ -21,8 +21,8 @@ public class AddCommand extends Command {
     }
 
     /**
-     * Public constructor, adds a To Dgo reminder when executed
-     * @param description description of the task
+     * Public constructor, adds a To Dgo reminder when executed.
+     * @param description description of the task.
      */
     public AddCommand(String description) {
         super(false);
@@ -30,10 +30,10 @@ public class AddCommand extends Command {
     }
 
     /**
-     * Public constructor, executes the command the add the task to the system
-     * @param tasks task list in command execution
-     * @param ui user interface in command execution
-     * @param storage storage in command execution
+     * Public constructor, executes the command the add the task to the system.
+     * @param tasks task list in command execution.
+     * @param ui user interface in command execution.
+     * @param storage storage in command execution.
      */
     public void execute(TaskList tasks, Ui ui, Storage storage) {
         Tasks task;

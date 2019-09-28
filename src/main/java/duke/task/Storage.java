@@ -12,16 +12,17 @@ public class Storage {
     public static String DIVIDER = " | ";
 
     /**
-     * Public constructor, returns Save system
-     * @param filePath file path to save tasks to
+     * Public constructor, returns Save system.
+     * @param filePath file path to save tasks to.
      */
     public Storage(String filePath) {
         this.filePath = filePath;
     }
 
     /**
-     * Loads task data from file at file path
-     * @return list of tasks loaded from duke.txt at filepath
+     * Loads task data from file at file path.
+     * @return list of tasks loaded from duke.txt at filepath.
+     * @throws DukeException throws the exception.
      */
     public List<Tasks> load() throws DukeException {
         List<Tasks> taskList = new ArrayList<>();
@@ -40,29 +41,29 @@ public class Storage {
     }
 
     /**
-     * Saves tasks list to file path
-     * @param taskList list of tasks to be saved to duke.txt
+     * Saves tasks list to file path.
+     * @param taskList list of tasks to be saved to duke.txt.
      */
     public void saveTasks(List<Tasks> taskList) {
         try (FileWriter writer = new FileWriter(filePath)) {
             for (Tasks task : taskList) {
                 if (task instanceof ToDos) {
                     writer.write("T");
-                } else if(task instanceof  Deadlines){
+                } else if (task instanceof  Deadlines) {
                     writer.write("D");
-                } else if(task instanceof Events){
+                } else if (task instanceof Events) {
                     writer.write("E");
                 }
                 writer.write(DIVIDER + task.isitDone() + DIVIDER + task.getDescription());
                 if (task instanceof Deadlines) {
                     writer.write(DIVIDER + ((Deadlines) task).getDeadline());
-                } else if(task instanceof Events) {
+                } else if (task instanceof Events) {
                     writer.write(DIVIDER + ((Events) task).getVenue());
                 }
                 writer.write("\n");
             }
         } catch (IOException ioException) {
-
+            Ui.showSaveError();
         }
     }
 }

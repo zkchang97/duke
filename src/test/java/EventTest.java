@@ -1,5 +1,4 @@
-package duke.test;
-import duke.task.*;
+import duke.task.Events;
 
 import org.junit.jupiter.api.Test;
 import org.w3c.dom.events.Event;

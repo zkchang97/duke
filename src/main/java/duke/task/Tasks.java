@@ -5,10 +5,10 @@ public class Tasks {
     protected String description; // protected: only class and subclass can access
 
     /**
-     * Creates the appropriate task according to parameters
-     * @param task description of task
-     * @param type type of task
-     * @return returns an uncompleted task according to task and type
+     * Creates the appropriate task according to parameters.
+     * @param task description of task.
+     * @param type type of task.
+     * @return returns an uncompleted task according to task and type.
      */
     public static Tasks taskList(String task, String type) {
         if (type.equals("todo")) {
@@ -29,9 +29,9 @@ public class Tasks {
     }
 
     /**
-     * Creates a task according to taskParams
-     * @param taskParams array of parameters of the task to be created
-     * @return returns uncompleted task according to taskParams
+     * Creates a task according to taskParams.
+     * @param taskParams array of parameters of the task to be created.
+     * @return returns uncompleted task according to taskParams.
      */
     public static Tasks taskList(String[] taskParams) {
         String type = taskParams[0];
@@ -51,8 +51,8 @@ public class Tasks {
     }
 
     /**
-     * Public constructor of a task
-     * @param description
+     * Public constructor of a task.
+     * @param description description of task.
      */
     public Tasks(String description) {
         this.description = description;
@@ -72,6 +72,10 @@ public class Tasks {
         return isDone;
     }
 
+    /**
+     *  Returns the symbol for tick or cross.
+     * @return returns symbol.
+     */
     public String markTask() {
         if (isDone) {
             return "✓";    // tick
